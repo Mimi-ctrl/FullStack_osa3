@@ -2,6 +2,8 @@
 
 ### [👉 Pää repo 👈](https://github.com/Mimi-ctrl/FullStack)
 
+
+### [Linkki sovelluksen backendiin](https://fullstack-osa3-ysa8.onrender.com/api/persons)
 ### [Linkki sovellukseen](https://fullstack-osa3-ysa8.onrender.com/)
 
 ## Osa 3
