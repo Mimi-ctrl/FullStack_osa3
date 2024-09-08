@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -57,11 +56,17 @@ app.get('/api/persons/:id', (request, response) => {
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-  Person.findByIdAndRemove(request.params.id).then(() => {
-    response.status(204).end()
-  }).catch(error => {
-    response.status(400).send(error)
-  })
+  Person.findByIdAndDelete(request.params.id)
+    .then(result => {
+      if (result) {
+        response.status(204).end()
+      } else {
+        response.status(404).send({ error: 'Person not found' })
+      }
+    })
+    .catch(error => {
+      response.status(400).send({ error: error.message })
+    })
 })
 
 const PORT = process.env.PORT || 3001
